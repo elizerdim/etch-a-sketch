@@ -16,3 +16,17 @@
   width: calc(100% / 16);
   aspect-ratio: 1 / 1;
 }
+
+.color-picker-wrapper {
+  width: 70px;
+  height: 70px;
+  border-radius: 500px;
+  overflow: hidden;
+}
+
+input[type="color"] {
+  width: 90px;
+  height: 90px;
+  margin-left: -10px;
+  margin-top: -10px; 
+}
