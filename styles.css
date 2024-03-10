@@ -1,0 +1,18 @@
+* {
+  box-sizing: border-box;
+}
+
+.drawing-board {
+  width: 90vmin;
+  aspect-ratio: 1 / 1;
+  border: 1px solid black;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.board-square {
+  border: 1px solid black;
+  width: calc(100% / 16);
+  aspect-ratio: 1 / 1;
+}
