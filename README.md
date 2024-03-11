@@ -55,6 +55,8 @@ Users should be able to:
 
 - How to style sliders (range inputs) with consistency across all browsers. There is a very handy style generator for range inputs liked below in the Useful resources section.
 
+- What HEAD means in git, what the caret(s) that come after it mean, ```git reset```, ```git reset HEAD^```, ```git reset HEAD^^```. Also ```git commit --fixup=b1d7848``` https://stackoverflow.com/a/27721031
+
 ### Continued development
 
 Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
