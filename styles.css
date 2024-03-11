@@ -144,3 +144,9 @@ input[type="range"]::-moz-range-thumb {
   height: 1.85em;
   width: 1.85em;
 }
+
+footer {
+  text-align: center;
+  font-size: .75em;
+  margin-top: 3em;
+}
