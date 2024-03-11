@@ -53,6 +53,8 @@ Users should be able to:
 
 - I don't usually like using "hacky" wrappers, but this [article](https://css-tricks.com/color-inputs-a-deep-dive-into-cross-browser-differences/) shows just how complicated and near impossible it is to style color type inputs, so I opted to use a div wrapper around it to make it a circle with ```overflow: hidden``` instead of playing around with things like ```-webkit-appearance```, ```-webkit-color-swatch```, ```-webkit-color-swatch-wrapper```, and ```-moz-color-swatch``` and still not getting it right across browsers.
 
+- How to style sliders (range inputs) with consistency across all browsers. There is a very handy style generator for range inputs liked below in the Useful resources section.
+
 ### Continued development
 
 Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
@@ -60,7 +62,7 @@ Use this section to outline areas that you want to continue focusing on in futur
 ### Useful resources
 
 - [CSS ```all``` property](https://developer.mozilla.org/en-US/docs/Web/CSS/all) - Has browser compatibity across all major browsers
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [range input style CSS generator](https://range-input-css.netlify.app/) - This CSS generator is very handy in styling range inputs with consistency across all browsers.
 
 ## Author
 
