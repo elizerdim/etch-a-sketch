@@ -36,11 +36,15 @@ button {
   font-size: 1em;
 }
 
+.buttons > button,
+.buttons > .color-picker-wrapper {
+  box-shadow: 3px 3px 5px #CACACA;
+}
+
 .buttons > button {
   width: 13.5em;
   padding: .7em;
   background-color: #DDDDDD;
-  box-shadow: 3px 3px 5px #CACACA;
   border: 1px solid transparent;
   border-radius: 5px;
 }
