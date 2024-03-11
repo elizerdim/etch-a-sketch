@@ -32,14 +32,12 @@ main {
   border-bottom: 1px solid black;
 }
 
-.drawing-board > * {
-  border-top: 1px solid black;
-  border-left: 1px solid black;
-}
-
 .board-square {
   width: calc(100% / 16);
   aspect-ratio: 1 / 1;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  background-color: #FFFFFF;
 }
 
 .buttons {
