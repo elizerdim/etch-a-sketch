@@ -51,17 +51,17 @@ button {
 
 .buttons > .color-picker-wrapper {
   margin: 1em auto 1.5em;
-  width: 80px;
-  height: 80px;
+  width: 5em;
+  height: 5em;
   border-radius: 500px;
   overflow: hidden;
 }
 
 .buttons input[type="color"] {
-  width: 100px;
-  height: 100px;
-  margin-left: -10px;
-  margin-top: -10px; 
+  width: 8em;
+  height: 8em;
+  margin-left: -1em;
+  margin-top: -1em; 
 }
 
 .buttons > .darken-btn,
