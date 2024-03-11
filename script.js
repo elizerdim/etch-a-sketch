@@ -1,3 +1,4 @@
+//add squares inside the drawing board
 const drawingBoard = document.querySelector(".drawing-board");
 
 for (let i = 1; i <= 16 * 16; i++) {
