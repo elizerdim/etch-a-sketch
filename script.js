@@ -167,7 +167,6 @@ function draw(e) {
       } else {
         currentColorInHSL.l -= 0.1;
         e.target.style.backgroundColor = currentColorInHSL;
-        console.log(currentColorInHSL.l);
       }
       break;
     case 'lighten-btn':
@@ -179,4 +178,23 @@ function draw(e) {
       }
       break;
   }
+}
+
+//grid size slider functionality
+const gridSlider = document.querySelector('#grid-size');
+gridSlider.addEventListener('input', handleGridChange);
+
+function handleGridChange(e) {
+  drawingBoard.querySelectorAll('.board-square').forEach(square => square.remove());
+
+  for (let i = 1; i <= e.target.value * e.target.value; i++) {
+    const boardSquare= document.createElement('div');
+    boardSquare.classList.add('board-square');
+    boardSquare.style.backgroundColor = '#FFFFFF';
+    boardSquare.style.width = `calc(100% / ${e.target.value})`;
+    drawingBoard.appendChild(boardSquare);
+  }
+
+  const gridSize = document.querySelector('.grid-size-label');
+  gridSize.textContent = `${e.target.value} x ${e.target.value}`
 }
