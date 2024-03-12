@@ -59,6 +59,35 @@ Users should be able to:
 
 - ```e.target.tagName``` to access the element type.
 
+- Function nesting is necessary to draw only when mouse is clicked and kept pressed while moving the cursor and stop drawing when it is released.
+
+```js
+boardSquares.forEach(square => square.addEventListener('mousedown', startDrawing));
+
+function startDrawing(e) {
+  boardSquares.forEach(square => square.addEventListener('mouseenter', draw));
+  window.addEventListener('mouseup', () => {
+    boardSquares.forEach(square => square.removeEventListener('mouseenter', draw))
+  })
+}
+
+function draw(e) {
+  ...
+}
+```
+
+- Sometimes, the browser confuses this activity with drag and drop, so preventing the default behavior of these events is helpful.
+
+```js
+document.body.addEventListener('dragstart', event => {
+  event.preventDefault();
+});
+
+document.body.addEventListener('drop', event => {
+  event.preventDefault();
+});
+```
+
 ### Continued development
 
 Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
@@ -67,6 +96,8 @@ Use this section to outline areas that you want to continue focusing on in futur
 
 - [CSS ```all``` property](https://developer.mozilla.org/en-US/docs/Web/CSS/all) - Has browser compatibity across all major browsers
 - [range input style CSS generator](https://range-input-css.netlify.app/) - This CSS generator is very handy in styling range inputs with consistency across all browsers.
+- [removeEventListener](https://www.reddit.com/r/learnjavascript/comments/101i2ca/comment/j2nq9sx/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button)
+- [disabling drag and drop events](https://bobbyhadz.com/blog/disable-drag-and-drop-in-javascript#disabling-drag-and-drop-for-all-elements-in-the-document)
 
 ## Author
 

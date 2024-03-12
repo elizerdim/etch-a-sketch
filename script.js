@@ -7,35 +7,7 @@ for (let i = 1; i <= 16 * 16; i++) {
   drawingBoard.appendChild(boardSquare);
 }
 
-//track color change in color picker
-let colorPicker = document.querySelector('input[type=color]');
-let colorPickerColor = colorPicker.value;
-
-colorPicker.addEventListener('change', e => {
-  colorPickerColor = e.target.value;
-});
-
-//create drawing object for palettes
-const drawing = {
-  colorPalette1: {
-    colors: ['#FCF5ED', '#F4BF96', '#CE5A67', '#1F1717'],
-    currentColorIndex: 0
-  },
-  colorPalette2: {
-    colors: ['#5F0F40', '#FB8B24', '#E36414', '#9A031E'],
-    currentColorIndex: 0
-  },
-  colorPalette3: {
-    colors: ['#004225', '#F5F5DC', '#FFB000', '#FFCF9D'],
-    currentColorIndex: 0
-  },
-  customColorPalette: {
-    colors: [],
-    currentColorIndex: 0
-  },
-}
-
-//add functionality to buttons
+//button functionality
 let buttonsDiv = document.querySelector('.buttons');
 let buttons = document.querySelectorAll('button');
 let toggleGridLinesBtn = document.querySelector('#toggle-grid-lines-btn');
@@ -85,11 +57,77 @@ function handleGridToggle(e) {
   }
 }
 
-// boardSquares.forEach(square => square.addEventListener('mousedown', draw))
+//track color change in color picker
+let colorPicker = document.querySelector('input[type=color]');
+let colorPickerColor = colorPicker.value;
 
-// function draw(e) {
+colorPicker.addEventListener('input', e => {
+  console.log(e.target.value);
+  colorPickerColor = e.target.value;
+});
 
-// }
+//create object for palettes
+const palettes = {
+  'color-palette-1-btn': {
+    colors: ['#FCF5ED', '#F4BF96', '#CE5A67', '#1F1717']
+  },
+  'color-palette-2-btn': {
+    colors: ['#5F0F40', '#FB8B24', '#E36414', '#9A031E']
+  },
+  'color-palette-3-btn': {
+    colors: ['#004225', '#F5F5DC', '#FFB000', '#FFCF9D']
+  },
+  'custom-color-palette-btn': {
+    colors: []
+  },
+}
+
+//disable drag and drop to stop undesirable effects
+document.body.addEventListener('dragstart', event => {
+  event.preventDefault();
+});
+
+document.body.addEventListener('drop', event => {
+  event.preventDefault();
+});
+
+//drawing functionality
+boardSquares.forEach(square => square.addEventListener('mousedown', startDrawing));
+
+function startDrawing(e) {
+  draw(e);
+  boardSquares.forEach(square => square.addEventListener('mouseenter', draw));
+  window.addEventListener('mouseup', () => {
+    boardSquares.forEach(square => square.removeEventListener('mouseenter', draw))
+  })
+}
+
+let currentColorIndex = 0;
+
+function draw(e) {
+  switch (activeDrawingModeBtn) {
+    case 'color-btn':
+      e.target.style.backgroundColor = colorPickerColor;
+      break;
+    case 'eraser-btn':
+      e.target.style.backgroundColor = '#FFFFFF';
+      break;
+    case 'color-palette-1-btn':
+    case 'color-palette-2-btn':
+    case 'color-palette-3-btn':
+      e.target.style.backgroundColor = palettes[activeDrawingModeBtn].colors[currentColorIndex];
+      console.log(currentColorIndex);
+
+      if (currentColorIndex >= palettes[activeDrawingModeBtn].colors.length) {
+        currentColorIndex = 0;
+      } else {
+        currentColorIndex++;
+        console.log(currentColorIndex);
+      }
+      break;
+  }
+}
+
 
 
 
