@@ -4,12 +4,14 @@ const drawingBoard = document.querySelector('.drawing-board');
 for (let i = 1; i <= 16 * 16; i++) {
   const boardSquare= document.createElement('div');
   boardSquare.classList.add('board-square');
+  boardSquare.style.backgroundColor = '#FFFFFF'
   drawingBoard.appendChild(boardSquare);
 }
 
 //button functionality
 let buttonsDiv = document.querySelector('.buttons');
 let buttons = document.querySelectorAll('button');
+let customColorsSection = document.querySelector('.cultom-colors');
 let toggleGridLinesBtn = document.querySelector('#toggle-grid-lines-btn');
 let boardSquares = document.querySelectorAll('.board-square');
 let activeDrawingModeBtn = 'color-btn';
@@ -38,8 +40,13 @@ function handleBtnClick(e) {
   //specify button elements to prevent buttonsDiv from reacting to click event
   } else if (e.target.tagName === 'BUTTON') {
     buttons.forEach(button => button.style.backgroundColor = '#DDDDDD');
+    customColorsSection.style.display = 'none';
     e.target.style.backgroundColor = '#FFFFFF';
     activeDrawingModeBtn = e.target.id;
+
+    if (e.target.id === 'custom-color-palette-btn') {
+      customColorsSection.style.display = 'grid';
+    }
   }
 }
 
@@ -58,12 +65,15 @@ function handleGridToggle(e) {
 }
 
 //track color change in color picker
-let colorPicker = document.querySelector('input[type=color]');
+let colorPicker = document.querySelector('input#color-picker');
 let colorPickerColor = colorPicker.value;
-
+let colorBtn = document.querySelector('.color-btn');
 colorPicker.addEventListener('input', e => {
-  console.log(e.target.value);
   colorPickerColor = e.target.value;
+  activeDrawingModeBtn = 'color-btn';
+  buttons.forEach(button => button.style.backgroundColor = '#DDDDDD');
+  customColorsSection.style.display = 'none';
+  colorBtn.style.backgroundColor = '#FFFFFF';
 });
 
 //create object for palettes
@@ -79,8 +89,33 @@ const palettes = {
   },
   'custom-color-palette-btn': {
     colors: []
-  },
+  }
 }
+
+//track custom color palette colors
+let color1Picker = document.querySelector('#color-1');
+let color1 = color1Picker.value;
+color1Picker.addEventListener('input', e => {
+  palettes['custom-color-palette-btn'].colors[0] = e.target.value;
+});
+
+let color2Picker = document.querySelector('#color-2');
+let color2 = color2Picker.value;
+color2Picker.addEventListener('input', e => {
+  palettes['custom-color-palette-btn'].colors[1] = e.target.value;
+});
+
+let color3Picker = document.querySelector('#color-3');
+let color3 = color3Picker.value;
+color3Picker.addEventListener('input', e => {
+  palettes['custom-color-palette-btn'].colors[2] = e.target.value;
+});
+
+let color4Picker = document.querySelector('#color-4');
+let color4 = color4Picker.value;
+color4Picker.addEventListener('input', e => {
+  palettes['custom-color-palette-btn'].colors[3] = e.target.value;
+});
 
 //disable drag and drop to stop undesirable effects
 document.body.addEventListener('dragstart', event => {
@@ -105,6 +140,8 @@ function startDrawing(e) {
 let currentColorIndex = 0;
 
 function draw(e) {
+  let currentColorInHSL = d3.hsl(e.target.style.backgroundColor);
+
   switch (activeDrawingModeBtn) {
     case 'color-btn':
       e.target.style.backgroundColor = colorPickerColor;
@@ -115,28 +152,31 @@ function draw(e) {
     case 'color-palette-1-btn':
     case 'color-palette-2-btn':
     case 'color-palette-3-btn':
+    case 'custom-color-palette-btn':
       e.target.style.backgroundColor = palettes[activeDrawingModeBtn].colors[currentColorIndex];
-      console.log(currentColorIndex);
 
       if (currentColorIndex >= palettes[activeDrawingModeBtn].colors.length) {
         currentColorIndex = 0;
       } else {
         currentColorIndex++;
-        console.log(currentColorIndex);
+      }
+      break;
+    case 'darken-btn':
+      if (currentColorInHSL.l < .1) {
+        return;
+      } else {
+        currentColorInHSL.l -= 0.1;
+        e.target.style.backgroundColor = currentColorInHSL;
+        console.log(currentColorInHSL.l);
+      }
+      break;
+    case 'lighten-btn':
+      if (currentColorInHSL.l > .9) {
+        return;
+      } else {
+        currentColorInHSL.l += 0.1;
+        e.target.style.backgroundColor = currentColorInHSL;
       }
       break;
   }
 }
-
-
-
-
-//d3 colors
-
-// let c = d3.color('#FFCF9D');
-// c = d3.hsl(c);
-// c.l = 0;
-// console.log(c);
-// let a = document.querySelector('.board-square:first-child');
-
-// a.style.backgroundColor = c;
