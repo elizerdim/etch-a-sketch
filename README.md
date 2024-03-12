@@ -88,6 +88,8 @@ document.body.addEventListener('drop', event => {
 });
 ```
 
+- D3.js - I had completed Data Visualization lessons on freeCodeCamp earlier, but this is the first time I'm using it in a project. Figuring out how to do darkening and lightening effects took a lot of my time, I fell into a rabbit hole of color theory and complicated math equations to convert rgb colors into hsl, and finally decided to use d3.js in the end. I added ```<script src="https://d3js.org/d3.v7.min.js"></script>``` in the head of the html file to use it.
+
 ### Continued development
 
 Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
