@@ -155,7 +155,7 @@ function draw(e) {
     case 'custom-color-palette-btn':
       e.target.style.backgroundColor = palettes[activeDrawingModeBtn].colors[currentColorIndex];
 
-      if (currentColorIndex >= palettes[activeDrawingModeBtn].colors.length) {
+      if (currentColorIndex >= palettes[activeDrawingModeBtn].colors.length - 1) {
         currentColorIndex = 0;
       } else {
         currentColorIndex++;
