@@ -130,6 +130,7 @@ document.body.addEventListener('drop', event => {
 boardSquares.forEach(square => square.addEventListener('mousedown', startDrawing));
 
 function startDrawing(e) {
+  console.log(boardSquares);
   draw(e);
   boardSquares.forEach(square => square.addEventListener('mouseenter', draw));
   window.addEventListener('mouseup', () => {
@@ -197,4 +198,7 @@ function handleGridChange(e) {
 
   const gridSize = document.querySelector('.grid-size-label');
   gridSize.textContent = `${e.target.value} x ${e.target.value}`
+
+  boardSquares = document.querySelectorAll('.board-square');
+  boardSquares.forEach(square => square.addEventListener('mousedown', startDrawing));
 }
