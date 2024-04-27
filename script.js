@@ -19,6 +19,9 @@ let activeDrawingModeBtn = 'color-btn';
 //use event bubbling for button clicks
 buttonsDiv.addEventListener('click', handleBtnClick);
 
+//add toggle grid lines button separately
+toggleGridLinesBtn.addEventListener('click', handleBtnClick);
+
 function handleBtnClick(e) {
   //clear and toggle buttons shouldn't change the drawing mode
   if (e.target.id === 'clear-btn' || e.target.id === 'toggle-grid-lines-btn') {
