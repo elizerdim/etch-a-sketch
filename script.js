@@ -82,13 +82,13 @@ colorPicker.addEventListener('input', e => {
 //create object for palettes
 const palettes = {
   'color-palette-1-btn': {
-    colors: ['#FCF5ED', '#F4BF96', '#CE5A67', '#1F1717']
+    colors: ['#FF204E', '#A0153E', '#00224D', '#5D0E41']
   },
   'color-palette-2-btn': {
-    colors: ['#5F0F40', '#FB8B24', '#E36414', '#9A031E']
+    colors: ['#FF76CE', '#FDFFC2', '#94FFD8', '#A3D8FF']
   },
   'color-palette-3-btn': {
-    colors: ['#004225', '#F5F5DC', '#FFB000', '#FFCF9D']
+    colors: ['#EEE4B1', '#5F374B', '#430A5D', '#8C6A5D']
   },
   'custom-color-palette-btn': {
     colors: []
