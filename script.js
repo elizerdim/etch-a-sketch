@@ -32,7 +32,7 @@ function handleBtnClick(e) {
 
     //clear button should reset the board
     if (e.target.id === 'clear-btn') {
-      boardSquares.forEach(square => square.style.backgroundColor = '#FFFFFF');
+      confirm('Are you sure you want to clear the board?') && boardSquares.forEach(square => square.style.backgroundColor = '#FFFFFF');
     }
 
     //toggle button should toggle the grid lines
