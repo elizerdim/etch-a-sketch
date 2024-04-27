@@ -1,6 +1,6 @@
-# Challenge/Project Name (e.g. Frontend Mentor - Results summary component solution)
+# Etch A Sketch
 
-This is a solution to the [e.g. Results summary component challenge on Frontend Mentor](https://www.example.com). 
+This is a solution to the [Etch a Sketch project from the Odin Project](https://www.theodinproject.com/lessons/foundations-etch-a-sketch). 
 
 ## Table of contents
 
@@ -11,10 +11,7 @@ This is a solution to the [e.g. Results summary component challenge on Frontend 
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
-- [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
 ## Overview
 
@@ -23,43 +20,40 @@ This is a solution to the [e.g. Results summary component challenge on Frontend 
 Users should be able to:
 
 - View the optimal layout for the interface depending on their device's screen size
-- See hover and focus states for all interactive elements on the page
+- Draw on the board and use all the additional features
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![](./screenshot.jpeg)
 
 ### Links
 
-- [View Code](https://www.example.com)
-- [Live Preview](https://www.example.com)
+- [View Code](https://github.com/elizerdim/etch-a-sketch)
+- [Live Preview](https://elizerdim.github.io/etch-a-sketch/)
 
 ## My process
 
 ### Built with
 
-- Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
-- Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
+- HTML
+- CSS
+- JavaScript
 
 ### What I learned
 
+- I know this is a beginner project, but I'm really proud of this one! I feel I went above and beyond to include additional features and spent a lot of time to get it to my liking. I learned a lot about DOM manipulation and color theory!
+
 - CSS ```all``` property - can be used to reset all properties of an element
 
-- I don't usually like using "hacky" wrappers, but this [article](https://css-tricks.com/color-inputs-a-deep-dive-into-cross-browser-differences/) shows just how complicated and near impossible it is to style color type inputs, so I opted to use a div wrapper around it to make it a circle with ```overflow: hidden``` instead of playing around with things like ```-webkit-appearance```, ```-webkit-color-swatch```, ```-webkit-color-swatch-wrapper```, and ```-moz-color-swatch``` and still not getting it right across browsers.
+- I don't usually like using "hacky" wrappers, but [this article](https://css-tricks.com/color-inputs-a-deep-dive-into-cross-browser-differences/) shows just how complicated and near impossible it is to style color type inputs, so I opted to use a div wrapper around it to make it a circle with ```overflow: hidden``` instead of playing around with things like ```-webkit-appearance```, ```-webkit-color-swatch```, ```-webkit-color-swatch-wrapper```, and ```-moz-color-swatch``` and still not getting it right across browsers.
 
-- How to style sliders (range inputs) with consistency across all browsers. There is a very handy style generator for range inputs liked below in the Useful resources section.
+- How to style sliders (range inputs) with consistency across all browsers. There is a very handy style generator for range inputs liked below in the Useful Resources section.
 
 - What HEAD means in git, what the caret(s) that come after it mean, ```git reset```, ```git reset HEAD^```, ```git reset HEAD^^```. Also ```git commit --fixup=b1d7848``` https://stackoverflow.com/a/27721031
 
 - ```e.target.tagName``` to access the element type.
 
-- Function nesting is necessary to draw only when mouse is clicked and kept pressed while moving the cursor and stop drawing when it is released.
+- Event listeners should be nested to achieve the functionality of drawing only when mouse is clicked and kept pressed while moving the cursor and stop drawing when it is released.
 
 ```js
 boardSquares.forEach(square => square.addEventListener('mousedown', startDrawing));
@@ -88,11 +82,7 @@ document.body.addEventListener('drop', event => {
 });
 ```
 
-- D3.js - I had completed Data Visualization lessons on freeCodeCamp earlier, but this is the first time I'm using it in a project. Figuring out how to do darkening and lightening effects took a lot of my time, I fell into a rabbit hole of color theory and complicated math equations to convert rgb colors into hsl, and finally decided to use d3.js in the end. I added ```<script src="https://d3js.org/d3.v7.min.js"></script>``` in the head of the html file to use it.
-
-### Continued development
-
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+- D3.js - I had completed Data Visualization lessons on freeCodeCamp earlier, but this is the first time I'm using it in a project. Figuring out how to do darkening and lightening effects took a lot of my time, I fell into a rabbit hole of color theory and complicated math equations to convert rgb colors into hsl before I ultimately decided to use d3.js instead. I added ```<script src="https://d3js.org/d3.v7.min.js"></script>``` in the head of the html file to use it.
 
 ### Useful resources
 
@@ -100,13 +90,3 @@ Use this section to outline areas that you want to continue focusing on in futur
 - [range input style CSS generator](https://range-input-css.netlify.app/) - This CSS generator is very handy in styling range inputs with consistency across all browsers.
 - [removeEventListener](https://www.reddit.com/r/learnjavascript/comments/101i2ca/comment/j2nq9sx/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button)
 - [disabling drag and drop events](https://bobbyhadz.com/blog/disable-drag-and-drop-in-javascript#disabling-drag-and-drop-for-all-elements-in-the-document)
-
-## Author
-
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
