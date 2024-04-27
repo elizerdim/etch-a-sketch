@@ -130,7 +130,6 @@ document.body.addEventListener('drop', event => {
 boardSquares.forEach(square => square.addEventListener('mousedown', startDrawing));
 
 function startDrawing(e) {
-  console.log(boardSquares);
   draw(e);
   boardSquares.forEach(square => square.addEventListener('mouseenter', draw));
   window.addEventListener('mouseup', () => {
